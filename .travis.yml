@@ -1,0 +1,25 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - VERSION
+    - DOCKER_USERNAME=cargomediabot
+    - secure: Ll3k4v/fxjQlH2Eu/IjRAxL8Hw1fpAuZYnEmqspeH34rdfRdsRLYroiB5lG7fYasNV7PUugyHFOcis9zC4YfKxtb5rL9riy8x5+UhJxn6HfS6KPhdVwDI8Nx0rpwselyR1A44U9lyl+QNPNzW+jCHkR2OJSy0HFFhut7fdhBxULR5IzdCSEwsAwaJplp7SBcnQpQde6VzseRg/w+x8eiNQzQv8p4RZwalkPawXFCjYPMuSoFehkq99ki77xjpB3mlmCZhNJOchCyixMdl5LTtGSpKBj/jcMNCj5uaS8zsQCwfiavu8FMUwbMR0825ABNFmZcWrPb2WDc2iS2vf3PW3QBeHj3qwBS0H+6WI4q6rCNLgC1pr/PfxC3zoIMfDIHeYLBKsY8waJGdEnydNdreTkz1JrvWZEqjss+9E+PyJPSw1/AdxqOgd3cjtDYfDuwI0NJ+j1EkECG7d+Epg9wWEcaCuPemy3G++J99/XiBO6N5ip+X0EbBKIzJIwSmyLXqLF8gYjE2aFRy5L1MZqIxRTQvZkFCWZrvCxJniAdpWV9MkehXbKYr1DGVnHaqayFYUUXORgb+vZokEc8w2w8ko5MbeOW2lX2APUR6AvGolfBE5JT0HpKo5nu2o5mpDuD5P7ZRfLO5v9vytnF/1DQXJGJeSLiEicBovZweN0gDwg=
+
+install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker --version
+
+script:
+  - docker build -t cargomedia/gearman-exporter:latest .
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ./docker-push.sh
+  on:
+    branch: master
