@@ -3,7 +3,7 @@ docker-gearman-exporter
 Docker image for [gearman-exporter](https://github.com/bakins/gearman-exporter), which exports Gearman metrics in Prometheus format.
 
 [![Build Status](https://img.shields.io/travis/cargomedia/docker-gearman-exporter/master.svg)](https://travis-ci.org/cargomedia/docker-gearman-exporter)
-[![Docker Hub](https://img.shields.io/docker/pulls/_/docker-gearman-exporter.svg)](https://hub.docker.com/r/cargomedia/gearman-exporter/)
+[![Docker Hub](https://img.shields.io/badge/Docker_Hub-cargomedia%2Fgearman--exporter-22b8eb.svg)](https://hub.docker.com/r/cargomedia/gearman-exporter/)
 
 Usage
 -----
