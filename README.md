@@ -1,3 +1,8 @@
+UNMAINTAINED
+============
+
+Use the docker image right from https://github.com/bakins/gearman-exporter instead!
+
 docker-gearman-exporter
 =======================
 Docker image for [gearman-exporter](https://github.com/bakins/gearman-exporter), which exports Gearman metrics in Prometheus format.
